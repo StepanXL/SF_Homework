@@ -1,0 +1,70 @@
+enum HandlerError: Error {
+    case badRequest  // 400 "Неправильный, некорректный запрос"
+    case notFound // 404 "Не найдено"
+    case internalServerError // 500 "Bнутренняя ошибка сервера"
+}
+// Создаем переменные
+
+var badRequest: Bool = false
+var notFound: Bool = false
+var internalServerError: Bool = true
+
+// При помощи do-catch сделаtv обработку ошибок перечисления:
+
+do {
+    if badRequest {
+        throw HandlerError.badRequest
+    }
+    if notFound {
+        throw HandlerError.notFound
+    }
+    if internalServerError {
+        throw HandlerError.internalServerError
+    }
+} catch HandlerError.badRequest {
+    print("Ошибка 400 Неправильный, некорректный запрос")
+} catch HandlerError.notFound {
+    print("Ошибка 404 Не найдено")
+} catch HandlerError.internalServerError {
+    print("Ошибка 500 Bнутренняя ошибка сервера")
+}
+
+// Добавим проверку переменных в генерирующую функцию и обрабатаем её!
+
+func checkingVariables() throws {
+if badRequest { throw HandlerError.badRequest }
+if notFound { throw HandlerError.notFound }
+if internalServerError { throw HandlerError.internalServerError } }
+
+
+// Напишим функцию, которая будет принимать на вход два разных типа и проверять: если типы входных значений одинаковые, то выведим сообщение “Yes”, в противном случае — “No”.
+
+
+
+func someFunc<T, E: Equatable>(type a: T, type b: E) {
+    if type(of: a) == type(of: b) {
+        print("Yes")
+        
+    }
+    else {
+        print("No")
+    }
+    
+    // Далее, если тип входных значений различается, выбрасывается исключение. Если тип одинаковый — исключение тоже выбрасывается.
+    
+
+    someFunc(type: 12, type: 12)
+    if type(of: 12) != type(of: 12) {
+        print("Error")
+    }
+    if type(of: a) == type(of: b){
+        print("Error")
+        }
+ 
+    }
+    
+// Создать функцию, которая принимает на вход два любых значения и сравнивает их при помощи оператора равенства (==).
+
+func comparesFunc (Func1: Int, Func2: Int) -> Int
+    
+        
